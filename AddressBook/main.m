@@ -11,9 +11,7 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        AddressBook *addrBook = [[AddressBook alloc] init];
-        [addrBook addMultipleAddresses];
-        [addrBook displayAddresses];
+        [AddressBook run];
     }
     return 0;
 }

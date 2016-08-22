@@ -19,6 +19,22 @@
     return self;
 }
 
++ (void) run {
+    AddressBook *addressBook = [[AddressBook alloc] init];
+    BOOL running = YES;
+    
+    while (running) {
+        [addressBook addMultipleAddresses];
+        [addressBook displayAddresses];
+        NSInteger cont = getNumberFromUser(2, @"Would you like to quit? Enter 1 for yes, 0 for no.");
+        
+        if (cont == 1) {
+            running = NO;
+        }
+        
+    }
+}
+
 - (void)addMultipleAddresses {
     BOOL adding = YES;
     
