@@ -19,7 +19,21 @@
     return self;
 }
 
-- (BOOL)addNewAddress {
+- (void)addMultipleAddresses {
+    BOOL adding = YES;
+    
+    while (adding) {
+        [self addOneAddress];
+        
+        NSInteger cont = getNumberFromUser(2, @"Would you like to add another address? Enter 1 for yes, 0 for no:");
+        
+        if (cont == 0) {
+            adding = NO;
+        }
+    }
+}
+
+- (BOOL)addOneAddress {
     
     NSInteger expectedCount = [self.addresses count] + 1;
     
@@ -29,7 +43,6 @@
     NSString *buddy = getStringFromUser(30, @"Best bud's name (30 characters or less):");
     
     Address *addr = [[Address alloc] initWithFirstName:first lastName:last emailAddress:email buddyName:buddy];
-    
     [self.addresses setValue:addr forKey:addr.fullName];
     
     return [self.addresses count] == expectedCount;

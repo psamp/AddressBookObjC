@@ -12,7 +12,7 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         AddressBook *addrBook = [[AddressBook alloc] init];
-        [addrBook addNewAddress];
+        [addrBook addMultipleAddresses];
         [addrBook displayAddresses];
     }
     return 0;

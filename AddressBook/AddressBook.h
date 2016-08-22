@@ -13,7 +13,8 @@
 
 @property(nonatomic, readonly, copy) NSMutableDictionary *addresses;
 
-- (BOOL)addNewAddress;
+- (void)addMultipleAddresses;
+- (BOOL)addOneAddress;
 - (void)displayAddresses;
 
 @end
