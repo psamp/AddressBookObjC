@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		746F19CA1D6B880600D352C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 746F19C91D6B880600D352C7 /* main.m */; };
 		746F19D21D6B883C00D352C7 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 746F19D11D6B883C00D352C7 /* Address.m */; };
+		746F19D51D6B8EC700D352C7 /* AddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 746F19D41D6B8EC700D352C7 /* AddressBook.m */; };
+		746F19D81D6B958300D352C7 /* Input.m in Sources */ = {isa = PBXBuildFile; fileRef = 746F19D71D6B958300D352C7 /* Input.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,10 @@
 		746F19C91D6B880600D352C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		746F19D01D6B883C00D352C7 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Address.h; sourceTree = "<group>"; };
 		746F19D11D6B883C00D352C7 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
+		746F19D31D6B8EC700D352C7 /* AddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBook.h; sourceTree = "<group>"; };
+		746F19D41D6B8EC700D352C7 /* AddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBook.m; sourceTree = "<group>"; };
+		746F19D61D6B958300D352C7 /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
+		746F19D71D6B958300D352C7 /* Input.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Input.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,10 @@
 				746F19C91D6B880600D352C7 /* main.m */,
 				746F19D01D6B883C00D352C7 /* Address.h */,
 				746F19D11D6B883C00D352C7 /* Address.m */,
+				746F19D31D6B8EC700D352C7 /* AddressBook.h */,
+				746F19D41D6B8EC700D352C7 /* AddressBook.m */,
+				746F19D61D6B958300D352C7 /* Input.h */,
+				746F19D71D6B958300D352C7 /* Input.m */,
 			);
 			path = AddressBook;
 			sourceTree = "<group>";
@@ -124,7 +134,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				746F19D51D6B8EC700D352C7 /* AddressBook.m in Sources */,
 				746F19D21D6B883C00D352C7 /* Address.m in Sources */,
+				746F19D81D6B958300D352C7 /* Input.m in Sources */,
 				746F19CA1D6B880600D352C7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

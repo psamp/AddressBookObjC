@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Address.h"
+#import "AddressBook.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSLog(@"%@", [[Address alloc] initWithFirstName:@"Princess" lastName:@"Sampson" emailAddress:@"nospam@gmail.com"]);
+        AddressBook *addrBook = [[AddressBook alloc] init];
+        [addrBook addNewAddress];
+        [addrBook displayAddresses];
     }
     return 0;
 }

@@ -10,16 +10,20 @@
 
 @implementation Address
 
-- (instancetype)initWithFirstName:(NSString *)first lastName:(NSString *)last emailAddress:(NSString *)email {
+- (instancetype)initWithFirstName:(NSString *)first
+                         lastName:(NSString *)last
+                     emailAddress:(NSString *)email
+                        buddyName:(NSString *)buddy{
     
     Address *rtn = nil;
     self = [super init];
     
-    if (self && first != nil && last != nil && email != nil) {
+    if (self && first != nil && last != nil && email != nil && buddy != nil) {
         
         _first = first;
         _last = last;
         _email = email;
+        _buddy = buddy;
         
         rtn = self;
     }
@@ -28,13 +32,16 @@
 }
 
 - (instancetype)init {
-    return [self initWithFirstName:nil lastName:nil emailAddress:nil];
+    return [self initWithFirstName:nil lastName:nil emailAddress:nil buddyName:nil];
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat: @"Full name: %@ %@\nEmail: %@", [self first], [self last], [self email]];
+    return [NSString stringWithFormat: @"Full name: %@ %@ | Email: %@ | Buddy's name: %@", self.first, self.last, self.email, self.buddy];
 }
 
+-(NSString *)fullName {
+    return [NSString stringWithFormat:@"%@ %@", self.first, self.last];
+}
 
 
 @end
