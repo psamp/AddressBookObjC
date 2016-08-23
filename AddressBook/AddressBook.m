@@ -46,7 +46,7 @@
     BOOL addingAddresses = YES;
     
     while (addingAddresses) {
-        [self addOneAddress];
+        [self getAddressFromUser];
         NSInteger cont = getNumberFromUser(2, @"Would you like to add another address? 0) No 1) Yes");
         
         if (cont == 0) {
@@ -56,7 +56,7 @@
     
 }
 
-- (BOOL)addOneAddress {
+- (BOOL)getAddressFromUser {
     
     NSInteger expectedCount = [self.addresses count] + 1;
     

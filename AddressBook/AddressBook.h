@@ -15,7 +15,7 @@
 
 + (void) run;
 - (void)viewSingleOrAllAddresses;
-- (BOOL)addOneAddress;
+- (BOOL)getAddressFromUser;
 - (void)updateAddressBuddy;
 - (void)addMultipleAddresses;
 - (void)displayAllAddresses;
