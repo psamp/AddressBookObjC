@@ -18,7 +18,7 @@
     Address *rtn = nil;
     self = [super init];
     
-    if (self && first != nil && last != nil && email != nil && buddy != nil) {
+    if (self && first != nil && last != nil && email != nil) {
         
         _first = first;
         _last = last;
@@ -36,7 +36,15 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat: @"Full name: %@ %@ | Email: %@ | Buddy's name: %@", self.first, self.last, self.email, self.buddy];
+    NSMutableString *rtn = [NSMutableString string];
+    
+    if(self.buddy) {
+        rtn = [NSMutableString stringWithFormat: @"Full name: %@ %@ | Email: %@ | Buddy's name: %@", self.first, self.last, self.email, self.buddy];
+    } else {
+        rtn = [NSMutableString stringWithFormat: @"Full name: %@ %@ | Email: %@", self.first, self.last, self.email];
+    }
+    
+    return rtn;
 }
 
 -(NSString *)fullName {

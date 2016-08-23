@@ -64,7 +64,7 @@
     NSString *last = getStringFromUser(31, @"Last name (30 characters or less):");
     NSString *email = getStringFromUser(31, @"Email (30 characters or less):");
     
-    Address *addr = [[Address alloc] initWithFirstName:first lastName:last emailAddress:email buddyName:@"Unknown"];
+    Address *addr = [[Address alloc] initWithFirstName:first lastName:last emailAddress:email buddyName:nil];
     [self.addresses setValue:addr forKey:addr.fullName];
     
     return [self.addresses count] == expectedCount;
@@ -78,11 +78,11 @@
         Address *existingAddress = nil;
         
         while (selected == nil) {
-            selected = [self.addresses objectForKey:getStringFromUser(61, @"Which address would you like to give a buddy? Enter their full name.")];
+            selected = [self.addresses objectForKey:getStringFromUser(61, @"Which address would you like to give a buddy? Enter their full name:")];
         }
         
         while (existingAddress == nil) {
-            existingAddress = [self.addresses objectForKey:getStringFromUser(61, @"Enter one of your other addresses:")];
+            existingAddress = [self.addresses objectForKey:getStringFromUser(61, @"Enter the full name of one of your other addresses:")];
         }
         
         [selected setBuddy: existingAddress.fullName];
