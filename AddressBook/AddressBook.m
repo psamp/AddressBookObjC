@@ -33,7 +33,7 @@
         
         [addressBook viewSingleOrAllAddresses];
         
-        NSInteger cont = getNumberFromUser(2, @")0 Add more addresses 1) Quit");
+        NSInteger cont = getNumberFromUser(2, @"0) Add more addresses 1) Quit");
         
         if (cont == 1) {
             running = NO;
@@ -85,7 +85,7 @@
             existingAddress = [self.addresses objectForKey:getStringFromUser(61, @"Enter the full name of one of your other addresses:")];
         }
         
-        [selected setBuddy: existingAddress.fullName];
+        selected.buddy = [self.addresses objectForKey:existingAddress.fullName];
         
         NSInteger cont = getNumberFromUser(2, @"Would you like to give someone else a buddy? 0) No 1) Yes");
         

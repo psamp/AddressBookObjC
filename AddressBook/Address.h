@@ -13,12 +13,12 @@
 @property(nonatomic, readwrite, copy) NSString *first;
 @property(nonatomic, readwrite, copy) NSString *last;
 @property(nonatomic, readwrite, copy) NSString *email;
-@property(nonatomic, readwrite, copy) NSString *buddy;
+@property(nonatomic, readwrite, strong) Address *buddy;
 
 - (instancetype)initWithFirstName:(NSString *)first
                          lastName:(NSString *)last
                      emailAddress:(NSString *)email
-                        buddyName:(NSString *)buddy NS_DESIGNATED_INITIALIZER;
+                        buddyName:(Address *)buddy NS_DESIGNATED_INITIALIZER;
 
 - (NSString *)fullName;
 

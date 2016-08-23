@@ -13,7 +13,7 @@
 - (instancetype)initWithFirstName:(NSString *)first
                          lastName:(NSString *)last
                      emailAddress:(NSString *)email
-                        buddyName:(NSString *)buddy{
+                        buddyName:(Address *)buddy{
     
     Address *rtn = nil;
     self = [super init];
@@ -39,7 +39,7 @@
     NSMutableString *rtn = [NSMutableString string];
     
     if(self.buddy) {
-        rtn = [NSMutableString stringWithFormat: @"Full name: %@ %@ | Email: %@ | Buddy's name: %@", self.first, self.last, self.email, self.buddy];
+        rtn = [NSMutableString stringWithFormat: @"Full name: %@ %@ | Email: %@ | Buddy: %@", self.first, self.last, self.email, self.buddy.fullName];
     } else {
         rtn = [NSMutableString stringWithFormat: @"Full name: %@ %@ | Email: %@", self.first, self.last, self.email];
     }
