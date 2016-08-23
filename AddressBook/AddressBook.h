@@ -14,8 +14,10 @@
 @property(nonatomic, readonly, copy) NSMutableDictionary *addresses;
 
 + (void) run;
-- (void)addMultipleAddresses;
+- (void)viewSingleOrAllAddresses;
 - (BOOL)addOneAddress;
-- (void)displayAddresses;
+- (void)addMultipleAddresses;
+- (void)displayAllAddresses;
+- (void)displayAllAddressKeys;
 
 @end
