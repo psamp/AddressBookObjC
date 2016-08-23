@@ -11,7 +11,7 @@
 
 @interface AddressBook : NSObject
 
-@property(nonatomic, readonly, copy) NSMutableDictionary *addresses;
+@property(nonatomic, readonly, copy) NSMutableDictionary <NSString *, Address *> *addresses;
 
 + (void) run;
 

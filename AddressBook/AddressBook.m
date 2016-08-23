@@ -14,7 +14,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _addresses = [NSMutableDictionary dictionary];
+        _addresses = [NSMutableDictionary <NSString *, Address *> dictionary];
     }
     return self;
 }
