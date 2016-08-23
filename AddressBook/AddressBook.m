@@ -26,8 +26,10 @@
     while (running) {
         [addressBook addMultipleAddresses];
         
-        NSLog(@"These are the addresses you've created:");
+        NSLog(@"These are the addresses you've created. None of them have friends!");
         [addressBook displayAllAddressKeys];
+        
+        [addressBook updateAddressBuddy];
         
         [addressBook viewSingleOrAllAddresses];
         
@@ -61,12 +63,37 @@
     NSString *first = getStringFromUser(31, @"First name (30 characters or less):");
     NSString *last = getStringFromUser(31, @"Last name (30 characters or less):");
     NSString *email = getStringFromUser(31, @"Email (30 characters or less):");
-    NSString *buddy = getStringFromUser(31, @"Buddy's name (30 characters or less):");
     
-    Address *addr = [[Address alloc] initWithFirstName:first lastName:last emailAddress:email buddyName:buddy];
+    Address *addr = [[Address alloc] initWithFirstName:first lastName:last emailAddress:email buddyName:@"Unknown"];
     [self.addresses setValue:addr forKey:addr.fullName];
     
     return [self.addresses count] == expectedCount;
+}
+
+- (void)updateAddressBuddy {
+    BOOL addingBuddies = YES;
+    
+    while (addingBuddies) {
+        Address *selected = nil;
+        Address *existingAddress = nil;
+        
+        while (selected == nil) {
+            selected = [self.addresses objectForKey:getStringFromUser(61, @"Which address would you like to give a buddy? Enter their full name.")];
+        }
+        
+        while (existingAddress == nil) {
+            existingAddress = [self.addresses objectForKey:getStringFromUser(61, @"Enter one of your other addresses:")];
+        }
+        
+        [selected setBuddy: existingAddress.fullName];
+        
+        NSInteger cont = getNumberFromUser(2, @"Would you like to give someone else a buddy? 0) No 1) Yes");
+        
+        if (cont == 0) {
+            addingBuddies = NO;
+        }
+        
+    }
 }
 
 -(void)viewSingleOrAllAddresses {
