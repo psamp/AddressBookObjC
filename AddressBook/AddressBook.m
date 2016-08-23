@@ -19,7 +19,7 @@
     return self;
 }
 
-+ (void) run {
++ (void)run {
     AddressBook *addressBook = [[AddressBook alloc] init];
     BOOL running = YES;
     
@@ -29,15 +29,13 @@
         NSLog(@"These are the addresses you've created.");
         [addressBook displayAllAddressKeys];
         
-        [addressBook updateAddressBuddy];
-        
-        [addressBook viewSingleOrAllAddresses];
-        
-        NSInteger cont = getNumberFromUser(2, @"0) Add more addresses 1) Quit");
-        
-        if (cont == 1) {
-            running = NO;
+        if([addressBook.addresses count] > 1) {
+            [addressBook updateAddressBuddy];
         }
+        
+        [addressBook viewInfoAboutOneOrAllAddresses];
+        
+        running = [addressBook askUserToContinue:@"Add more addresses" orQuit:@"Quit"];
         
     }
 }
@@ -47,11 +45,8 @@
     
     while (addingAddresses) {
         [self getAddressFromUser];
-        NSInteger cont = getNumberFromUser(2, @"Would you like to add another address? 0) No 1) Yes");
         
-        if (cont == 0) {
-            addingAddresses = NO;
-        }
+        addingAddresses = [self askUserToContinue:@"Add another address" orQuit:@"Quit adding addresses"];;
     }
     
 }
@@ -87,16 +82,26 @@
         
         selected.buddy = [self.addresses objectForKey:existingAddress.fullName];
         
-        NSInteger cont = getNumberFromUser(2, @"Would you like to give someone else a buddy? 0) No 1) Yes");
-        
-        if (cont == 0) {
-            addingBuddies = NO;
-        }
+        addingBuddies = [self askUserToContinue:@"Give someone else a buddy" orQuit:@"Stop adding buddies"];
         
     }
 }
 
--(void)viewSingleOrAllAddresses {
+- (void)displayAllAddresses {
+    for (NSString *key in self.addresses) {
+        NSLog(@"%@", [self.addresses objectForKey:key]);
+    }
+}
+
+- (void)displayAllAddressKeys {
+    NSArray *fullNames = [self.addresses allKeys];
+    
+    for (NSString *key in fullNames) {
+        NSLog(@"%@", key);
+    }
+}
+
+-(void)viewInfoAboutOneOrAllAddresses {
     NSInteger option = getNumberFromUser(2, @"0) See full info about all your addresses. 1) Select an address to view");
     
     if (option == 0) {
@@ -115,18 +120,11 @@
     }
 }
 
-- (void)displayAllAddresses {
-    for (NSString *key in self.addresses) {
-        NSLog(@"%@", [self.addresses objectForKey:key]);
-    }
-}
-
-- (void)displayAllAddressKeys {
-    NSArray *fullNames = [self.addresses allKeys];
+- (BOOL)askUserToContinue:(NSString *)yes orQuit:(NSString *)no {
+    NSString *prompt = [NSString stringWithFormat:@"0) %@ 1) %@", no, yes];
+    NSInteger cont = getNumberFromUser(2, prompt);
     
-    for (NSString *key in fullNames) {
-        NSLog(@"%@", key);
-    }
+    return cont == 1;
 }
 
 @end

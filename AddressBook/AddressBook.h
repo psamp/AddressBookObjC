@@ -14,11 +14,14 @@
 @property(nonatomic, readonly, copy) NSMutableDictionary *addresses;
 
 + (void) run;
-- (void)viewSingleOrAllAddresses;
+
+- (void)addMultipleAddresses;
 - (BOOL)getAddressFromUser;
 - (void)updateAddressBuddy;
-- (void)addMultipleAddresses;
+
 - (void)displayAllAddresses;
 - (void)displayAllAddressKeys;
+- (void)viewInfoAboutOneOrAllAddresses;
 
+- (BOOL)askUserToContinue:(NSString *)yes orQuit:(NSString *)no;
 @end
