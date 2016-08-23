@@ -26,7 +26,7 @@
     while (running) {
         [addressBook addMultipleAddresses];
         
-        NSLog(@"These are the addresses you've created. None of them have friends!");
+        NSLog(@"These are the addresses you've created.");
         [addressBook displayAllAddressKeys];
         
         [addressBook updateAddressBuddy];
